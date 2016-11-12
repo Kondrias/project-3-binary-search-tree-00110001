@@ -4,10 +4,7 @@ Project 3
 
 Group members:
 
-Ada Lovelace adalovelace@csu.fullerton.edu
-
-Charles Babbage charlesbab@csu.fullerton.edu
-
+David Feinzimer dfeinzimer@csu.fullerton.edu
 
 ## You need to answer the following question. 
 Two binary search trees contains exactly the same number of entries of student information but in different orders.
