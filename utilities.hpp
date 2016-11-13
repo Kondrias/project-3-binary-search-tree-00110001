@@ -23,7 +23,31 @@ SearchTree<Entry<string, string> >* buildBST_fromDatafile(const std::string& fil
 	SearchTree<Entry<string, string>> *bst = new SearchTree<Entry<string, string>>;
 
 	// TO DO: implement the creation of a binary search tree
+    
+    while (f) {
+        getline(f,s);
+        int mark = 0;
+        for (int i = 0; i < s.length(); i++) {
+            if (s[i] == ',') {
+                mark = i;
+            }
+        }
+        string key, value;
+        for (int i = 0; i < mark; i++) {
+            firstName += s[i];
+        }
+        for (int i = mark+1; i < s.length()-1; i++) {
+            movie += s[i];
+        }
+        //cout << "Inserting: " << bst->size() << " firstName: '" << firstName << "' movie '" << movie << "'" << endl;
+        bst->insert(firstName, movie);
+        firstName.clear();
+        movie.clear();
+        //cout << "Reset: firstName: '" << firstName << "' movie: '" << movie <<"'" << endl;
+    }
 
+
+    //cout << "Final tree size: " << bst->size() << endl;
 
 	f.close();
 

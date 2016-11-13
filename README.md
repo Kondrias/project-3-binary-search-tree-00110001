@@ -7,6 +7,4 @@ Group members:
 David Feinzimer dfeinzimer@csu.fullerton.edu
 
 ## You need to answer the following question. 
-Two binary search trees contains exactly the same number of entries of student information but in different orders.
-Do they give the same performance in terms of key searching or firstname searching? if not, why? use the data you obtain from you code to 
-explain your answer. 
+Two binary search trees contains exactly the same number of entries of student information but in different orders. Do they give the same performance in terms of key searching or firstname searching? if not, why? use the data you obtain from your code to explain your answer. 
