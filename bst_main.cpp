@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-# include "SLinkedList.h"
+#include "SLinkedList.h"
 #include "SearchTree.h"
 #include "utilities.hpp"
 #include <cassert>
@@ -24,8 +24,8 @@ int main() {
 	p = bst2->find("Steven");
 	assert((*p).value() == "Hands of Stone");
 	cout << "datafile2 is loaded successfully" << endl;
-
-	cout << "==== findPath test ====" << endl;
+    
+    cout << "==== findPath test ====" << endl;
 	sll1 = bst1->findPath("Steven");
 	cout << "Steven: " << sll1->size() << " steps" << endl;
 	sll2 = bst2->findPath("Steven");

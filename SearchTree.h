@@ -45,6 +45,7 @@ protected:						// local utilities
 	//typedef typename BinaryTree::Position TPos;		// position in the tree
 	Position<E> root() const;					// get virtual root
 	Position<E> finder(const K& k, Position<E>& v);		// find utility
+    SLinkedList<Entry<string, string>>* pfinder(const K& k, Position<E>& v, SLinkedList<Entry<string, string>> *_list);		// find utility
 	Position<E> inserter(const K& k, const V& x);		// insert utility
 	void inorder(Position<E>& v) const; // inorder print utility
 	Position<E> eraser(Position<E>& v);				// erase utility
@@ -110,17 +111,51 @@ Position<E> SearchTree<E>::finder(const K& k, Position<E>& v) {
 
 template <typename E>					// find entry with key k
 Position<E> SearchTree<E>::find(const K& k) {
-        Position<E> r = root();
+    Position<E> r = root();
 	return finder(k, r);				// search from root
 }
+
+template <typename E>					// find utility
+SLinkedList<Entry<string, string>>* SearchTree<E>::pfinder(const K& k, Position<E>& p, SLinkedList<Entry<string, string>> *_list) {
+    Position<E> l = p.left(), r = p.right();
+    Entry<string, string> new_entry;
+    if (p.isExternal()) {
+        new_entry = (*p);
+        _list->addFront(new_entry);
+        return _list;
+    }
+    if (k < (*p).key()) {
+        new_entry = (*p);
+        cout << "Key " << k << " < " << (*p).key() << endl;
+        _list->addFront(new_entry);
+        p = l;
+        pfinder(k, p, _list);
+    }
+    else if (k > (*p).key()) {
+        new_entry = (*p);
+        cout << "Key " << k << " > " << (*p).key() << endl;
+        _list->addFront(new_entry);
+        p = r;
+        pfinder(k, p, _list);
+    }
+    else {
+        new_entry = (*p);
+        _list->addFront(new_entry);
+        return _list;
+    }
+    return _list;
+}
+
 
 // TO DO: implement the finderPath function
 template <typename E>					// find entry with key k
 SLinkedList<E>* SearchTree<E>::findPath(const K& k) {
 	// TO DO: you need to implement a function to return the entries of search path
 	//         OK to create another member function to be called here if needed
-
-  return nullptr;
+    SLinkedList<Entry<string, string>> *sll = new SLinkedList<Entry<string, string>>;
+    Position<E> p = root();
+    pfinder(k, p, sll);
+    return sll;
 }
 
 
