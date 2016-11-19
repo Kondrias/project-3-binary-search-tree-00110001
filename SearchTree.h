@@ -126,14 +126,12 @@ SLinkedList<Entry<string, string>>* SearchTree<E>::pfinder(const K& k, Position<
     }
     if (k < (*p).key()) {
         new_entry = (*p);
-        cout << "Key " << k << " < " << (*p).key() << endl;
         _list->addFront(new_entry);
         p = l;
         pfinder(k, p, _list);
     }
     else if (k > (*p).key()) {
         new_entry = (*p);
-        cout << "Key " << k << " > " << (*p).key() << endl;
         _list->addFront(new_entry);
         p = r;
         pfinder(k, p, _list);
