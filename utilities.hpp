@@ -39,15 +39,12 @@ SearchTree<Entry<string, string> >* buildBST_fromDatafile(const std::string& fil
         for (int i = mark+1; i < s.length()-1; i++) {
             movie += s[i];
         }
-        //cout << "Inserting: " << bst->size() << " firstName: '" << firstName << "' movie '" << movie << "'" << endl;
+        
         bst->insert(firstName, movie);
         firstName.clear();
         movie.clear();
-        //cout << "Reset: firstName: '" << firstName << "' movie: '" << movie <<"'" << endl;
+        
     }
-
-
-    //cout << "Final tree size: " << bst->size() << endl;
 
 	f.close();
 
@@ -56,9 +53,6 @@ SearchTree<Entry<string, string> >* buildBST_fromDatafile(const std::string& fil
 
 // TO DO: You need to implement a function to print a singly linked list in reverse order
 void printInReverseOder(SNode<Entry<string,string> >* node) {
-    //if head is null then return // Line 1: base case
-    //    reversePrint(head.next)     // Line 2: print the list after head
-    //    print(head.data)
     if (node == NULL) {
         return;
     }

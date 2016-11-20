@@ -45,7 +45,7 @@ protected:						// local utilities
 	//typedef typename BinaryTree::Position TPos;		// position in the tree
 	Position<E> root() const;					// get virtual root
 	Position<E> finder(const K& k, Position<E>& v);		// find utility
-    SLinkedList<Entry<string, string>>* pfinder(const K& k, Position<E>& v, SLinkedList<Entry<string, string>> *_list);		// find utility
+    SLinkedList<Entry<string, string>>* pfinder(const K& k, Position<E>& v, SLinkedList<Entry<string, string>> *_list);		// helper function for find path
 	Position<E> inserter(const K& k, const V& x);		// insert utility
 	void inorder(Position<E>& v) const; // inorder print utility
 	Position<E> eraser(Position<E>& v);				// erase utility
